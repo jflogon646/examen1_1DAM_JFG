@@ -3,26 +3,26 @@
  * El programa pide una edad y un mes, separado por comas, y devuelve las tablas de multiplicar asignadas a esos valores
  * La edad debe estar comprendida entre 6 y 12, o devolverá un error y terminará.
  * El mes debe estar comprendido entre 1 y 12, o devolverá un error y terminará.
- * Si no se introduce alguno de los valores o el formato no esta correcto, el programa devolverá error y terminará.
- * @param entrada es una variable en la estarán los valores introducidos por teclado como una cadena
- * @param ListaEntrada es la lista usada para separar los valores de entrada
+ * Si no se introduce alguno de los valores o el formato no está correcto, el programa devolverá error y terminará.
+ * @param entrada es una variable en la que estarán los valores introducidos por teclado como una cadena
+ * @param listaEntrada es la lista usada para separar los valores de entrada
  * @param edad es la edad introducida por teclado.
  * @param mes es el mes introducido por teclado.
  *
  *
  */
 
-fun Tabla(num: Byte) {
+fun tabla(num: Byte) {
     /**
      * Funcion encargada de devolver las tablas de multiplicar
      * Se introduce un numero y devuelve su tabla de multiplicar.
      * @param num es el numero del que mostraremos su tabla.
      */
     println("*".repeat(20))
-    println(" TABLA DEL $num ")
+    println("   TABLA DEL $num   ")
     println("*".repeat(20))
     for (i in 1..10) {
-        println(" $num x $i = ${num*i}")
+        println("   $num x $i = ${num*i}")
     }
 
 
@@ -30,26 +30,26 @@ fun Tabla(num: Byte) {
 
 fun main() {
     print("Introduzca los valores deseados (en formato \"año,mes\"): ") //Introducimos el numero
-    //Declaracion de variables, entrada de consola introducida en variable y separada mediante split
+    //Declaración de variables, entrada de consola introducida en variable y separada mediante split
     var entrada: String = readLine() ?: ""
-    var ListaEntrada = entrada.split(",")
+    var listaEntrada = entrada.split(",")
     var edad: Byte = 0
     var mes: Byte = 0
 
-    //Comenzamos el programa
+    //Comenzamos el programa, mostramos por pantalla el comienzo
     println("*".repeat(36) + " INICIO " + "*".repeat(36))
     println("PROGRAMA DE GENERACIÓN DE TABLAS: José Flor González")
     println("_".repeat(85))
 
     // Si no se han introducido dos valores, devuelve error y termina el programa
-    if (ListaEntrada.size != 2) {
+    if (listaEntrada.size != 2) {
         println("La entrada de valores escogida no es correcta.")
         println("*".repeat(31) + " FIN DEL PROGRAMA " + "*".repeat(31))
     }
     // Si se han introducido dos valores, los incluimos en sus respectivas variables y continuamos la ejecucion
     else {
-        edad = try {ListaEntrada[0].trim().toByte()} catch (_: Exception) {-1} //Handler para edad
-        mes = try {ListaEntrada[1].trim().toByte()} catch (_: Exception) {-1} // Handler para mes
+        edad = try {listaEntrada[0].trim().toByte()} catch (_: Exception) {-1} //Handler para edad
+        mes = try {listaEntrada[1].trim().toByte()} catch (_: Exception) {-1} // Handler para mes
 
         if (edad <= 0 || mes <= 0) { // Si los valores son menores de 1 (debido al handler), devuelve error y finaliza el programa
             println("La entrada de valores escogida no es correcta.")
@@ -68,16 +68,16 @@ fun main() {
                     //Si el mes es par, devuelve las tablas del 2 y 4.
                     if (mes % 2 == 0) {
                         println("Mes: $mes. Par, corresponden las tablas {2,4}.")
-                        Tabla(2)
-                        Tabla(4)
+                        tabla(2)
+                        tabla(4)
                         println("*".repeat(20))
                     }
                     //Si el mes es impar, devuelve las tablas del 1, 3 y 5.
                     else {
                         println("Mes: $mes. Impar, corresponden las tablas {1,3,5}.")
-                        Tabla(1)
-                        Tabla(3)
-                        Tabla(5)
+                        tabla(1)
+                        tabla(3)
+                        tabla(5)
                         println("*".repeat(20))
                     }
                 }
@@ -87,15 +87,15 @@ fun main() {
                     // Si el mes es par, mostraremos las tablas del 6,8 y 10.
                     if (mes % 2 == 0) {
                         println("Mes: $mes. Par, corresponden las tablas {6,8,10}.")
-                        Tabla(6)
-                        Tabla(8)
-                        Tabla(10)
+                        tabla(6)
+                        tabla(8)
+                        tabla(10)
                         println("*".repeat(20))
                     } //Si el mes es impar, mostraremos las tablas del 7 y 9.
                     else {
                         println("Mes: $mes. Impar, corresponden las tablas {7,9}.")
-                        Tabla(7)
-                        Tabla(9)
+                        tabla(7)
+                        tabla(9)
                         println("*".repeat(20))
                     }
                 }
@@ -104,9 +104,9 @@ fun main() {
                     //No hay comprobación de mes porque para esta franja se muestran las mismas tablas, sea par o no.
                     println("Edad: $edad. Franja de [11 a 12] años")
                     println("Mes: $mes. Corresponden las tablas {11,12,13}.")
-                    Tabla(11)
-                    Tabla(12)
-                    Tabla(13)
+                    tabla(11)
+                    tabla(12)
+                    tabla(13)
                     println("*".repeat(20))
                 }
                 // Si la edad introducida no entra en ninguna de las condiciones anteriores,
@@ -119,6 +119,10 @@ fun main() {
             }
             println("*".repeat(31) + " FIN DEL PROGRAMA " + "*".repeat(31))
             // Fin del programa
+
+            /* Me habría gustado incluir un pequeño sleep para reducir la velocidad de muestra de las tablas,
+                pero no estoy seguro de como es exactamente la función por lo que lo dejo así.
+             */
         }
     }
 }
