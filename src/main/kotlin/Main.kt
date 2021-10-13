@@ -24,8 +24,6 @@ fun tabla(num: Byte) {
     for (i in 1..10) {
         println("   $num x $i = ${num*i}")
     }
-
-
 }
 
 fun main() {
@@ -119,7 +117,6 @@ fun main() {
             }
             println("*".repeat(31) + " FIN DEL PROGRAMA " + "*".repeat(31))
             // Fin del programa
-
             /* Me habría gustado incluir un pequeño sleep para reducir la velocidad de muestra de las tablas,
                 pero no estoy seguro de como es exactamente la función por lo que lo dejo así.
              */
