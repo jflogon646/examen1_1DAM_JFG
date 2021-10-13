@@ -18,9 +18,9 @@ fun Tabla(num: Byte) {
      * Se introduce un numero y devuelve su tabla de multiplicar.
      * @param num es el numero del que mostraremos su tabla.
      */
-    println("*".repeat(12))
+    println("*".repeat(20))
     println(" TABLA DEL $num ")
-    println("*".repeat(12))
+    println("*".repeat(20))
     for (i in 1..10) {
         println(" $num x $i = ${num*i}")
     }
